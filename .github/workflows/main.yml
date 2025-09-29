@@ -1,13 +1,26 @@
-name: First Github Action
-
-on: 
-  push: 
+name: Github Nginx install
+on:
+  push:
   workflow_dispatch:
-jobs: 
-  run-one-command:
+jobs:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-     - run:  echo "hello world"
-     - uses: actions/checkout@v3 
-     - run:  ls -la
-     - run: cat index.html && echo "ON push dispatch updated"
+    - uses: actions/checkout@v3
+    
+    - name: Installing NGINX
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y nginx
+    - name:  Copying index.html to nginx
+      run: |
+         sudo cp index.html /var/www/html/index.html
+
+    - name: Starting the nginx server
+      run : |
+       sudo systemctl enable nginx
+       sudo systemctl start nginx
+       sudo systemctl status nginx --no-pager
+      
+    
+    
