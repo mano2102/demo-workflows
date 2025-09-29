@@ -6,3 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - run:  echo "hello world"
+     - uses: actions/chechkout@v3 
+     - run:  ls -la
+     - run: cat index.html
