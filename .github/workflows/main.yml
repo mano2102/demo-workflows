@@ -21,6 +21,9 @@ jobs:
        sudo systemctl enable nginx
        sudo systemctl start nginx
        sudo systemctl status nginx --no-pager
+    - name: Checking the ip of the server
+      run: |
+      whoami
       
     
     
