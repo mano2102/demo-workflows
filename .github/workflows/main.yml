@@ -15,13 +15,13 @@ jobs:
          sudo cp index.html /var/www/html/index.html
 
     - name: Starting the nginx server
-      run : |
+      run: |
        sudo systemctl enable nginx
        sudo systemctl start nginx
        sudo systemctl status nginx --no-pager
     - name: Checking the ip of the server
       run: |
-      whoami
+        whoami
       
     
     
