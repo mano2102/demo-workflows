@@ -1,0 +1,8 @@
+name: First Github Action
+
+on: push
+jobs: 
+  run-one-command:
+    runs-on: ubuntu-latest
+    steps:
+     - run:  echo "hello world"
